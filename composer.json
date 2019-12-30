@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "tymon/jwt-auth": "1.0.0-rc.5",
+        "tymon/jwt-auth": "1.*@rc",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0"
     },
