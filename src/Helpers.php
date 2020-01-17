@@ -27,7 +27,7 @@ trait Helpers
         ];
         header('Content-type: text/json');
         echo json_encode($res);
-    }
+    }/*
     /**
      * @param $user
      * @return mixed
@@ -36,7 +36,7 @@ trait Helpers
      * @desc 创建token...
      */
     public function token($user){
-        return JWTAuth::fromUser($user);
+       // return JWTAuth::fromUser($user);
     }
     /**
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
@@ -59,7 +59,7 @@ trait Helpers
         if (Auth::attempt($data) ){
             $userinfo =User::where('username',$data['username'])->first();
             if ($userinfo){
-                return  JWTAuth::fromUser($userinfo);
+                //return  JWTAuth::fromUser($userinfo);
             }else{
                 return false;
             }
@@ -76,5 +76,8 @@ trait Helpers
      */
     public function refreshToken(){
        return  auth('api')->refresh();
+    }
+    public function adminUser(){
+        return Auth::guard('admin');
     }
 }
